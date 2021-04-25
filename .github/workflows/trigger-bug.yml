@@ -8,6 +8,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+      - run: |
+          touch test
+      - run: |
+          git add test
       - uses: actions-rs/toolchain@v1
         with:
           profile: minimal
@@ -18,6 +22,6 @@ jobs:
           command: install
           args: git-cm
       - run: |
-          rm -rf /home/runner/.cargo/registry/src && echo 123 > test && git add test
+          rm -rf /home/runner/.cargo/registry/src
       - run: |
           git-cm
