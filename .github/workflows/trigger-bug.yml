@@ -16,3 +16,7 @@ jobs:
         with:
           command: install
           args: git-cm
+      - run: |
+          rm -rf /home/runner/.cargo/registry/src
+      - run: |
+          git-cm
